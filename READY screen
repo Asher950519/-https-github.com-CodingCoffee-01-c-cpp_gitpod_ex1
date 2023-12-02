@@ -1,0 +1,32 @@
+//prepare screen
+int count=180;
+int readyTimer=60;
+PFont f;
+void setup(){
+  size(800,600);
+  f=createFont("Makinas-Scrap 5",150,true);
+}
+
+void draw(){
+  background(#51D306);
+  textFont(f);
+  fill(255);
+  textAlign(CENTER,CENTER);
+
+// show: "READY?"→(1sec)→"3" "2" "1"
+  if (readyTimer > 0) {
+    textSize(250);
+    text("READY?", 400, 300); 
+    readyTimer--;
+  }
+  else {
+    textSize(300);
+    if (count>0) {
+      text(""+int(ceil(count/60.0)),400,300);
+      count--;
+    }
+    else {
+      text("GO!",400,300); 
+    }
+  }
+}
